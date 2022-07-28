@@ -36,6 +36,7 @@ body {
     $random-scale: random(1000) * 0.001;
     $fall-duration: random_range(5, 15) * 1s;
     $fall-delay: random(30) * -1s;
+    $rotate: random(360) * 1deg;
 
     $random-img:ceil(random(3));
 
@@ -49,11 +50,11 @@ body {
     @keyframes fall-#{$i} {
       #{percentage($random-down-y)} {
         transform: translate($random-x, $random-down-height)
-          scale($random-scale);
+          scale($random-scale) rotate($rotate);
       }
 
       to {
-        transform: translate($random-x, 100vh) scale($random-scale);
+        transform: translate($random-x, 100vh) scale($random-scale) rotate($rotate);
       }
     }
   }
