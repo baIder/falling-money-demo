@@ -33,7 +33,7 @@ body {
     $random-x-secondEnd: $random-x + calc($random-offset/2);
     $random-down-y: calc(random_range(30000, 80000) / 100000);
     $random-down-height: $random-down-y * 100vh;
-    $random-scale: random(10000) * 0.0001;
+    $random-scale: random(1000) * 0.001;
     $fall-duration: random_range(5, 15) * 1s;
     $fall-delay: random(30) * -1s;
 
@@ -48,12 +48,12 @@ body {
 
     @keyframes fall-#{$i} {
       #{percentage($random-down-y)} {
-        transform: translate($random-x-firstEnd, $random-down-height)
+        transform: translate($random-x, $random-down-height)
           scale($random-scale);
       }
 
       to {
-        transform: translate($random-x-secondEnd, 100vh) scale($random-scale);
+        transform: translate($random-x, 100vh) scale($random-scale);
       }
     }
   }
