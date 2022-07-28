@@ -16,13 +16,15 @@ body {
   @return $random_range;
 }
 
-.snow {
+.money {
   $total: 200;
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  // background: white;
+  background-image: url(./img/1.svg);
+  background-size: cover;
+  // border-radius: 50%;
 
   @for $i from 1 through $total {
     $random-x: random(1000000) * 0.0001vw;
@@ -32,10 +34,13 @@ body {
     $random-down-y: calc(random_range(30000, 80000) / 100000);
     $random-down-height: $random-down-y * 100vh;
     $random-scale: random(10000) * 0.0001;
-    $fall-duration: random_range(10, 30) * 1s;
+    $fall-duration: random_range(5, 15) * 1s;
     $fall-delay: random(30) * -1s;
 
+    $random-img:ceil(random(3));
+
     &:nth-child(#{$i}) {
+      background-image:url(./img/#{$random-img}.svg);
       opacity: random(10000) * 0.0001;
       transform: translate($random-x, -10px) scale($random-scale);
       animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
